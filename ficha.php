@@ -19,6 +19,17 @@
         <input type="number" name="postal" placeholder="Codigo postal">
 
         <h3>Datos medicos</h3>
+        <select name="sanguineo">
+        <option disabled selected>Grupo sanguineo</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+        </select>
         <select name="obra_social">
         <option disabled selected>¿Obra social?</option>
             <option>No</option>
@@ -30,6 +41,12 @@
             <option>No</option>
             <option>Si</option>
         </select>
+        <select name="medicamentos">
+        <option disabled selected>¿Consume medicamentos?</option>
+            <option>No</option>
+            <option>Si</option>
+        </select>
+        <input type="text" name="cual" placeholder="¿Cual medicamento?">
     </form>
 </body>
 </html>
