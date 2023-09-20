@@ -25,6 +25,11 @@
             <option>Si</option>
         </select>
         <input type="text" name="obra" placeholder="Obra social"></input>
+        <select name="vacunacion">
+        <option disabled selected>¿Vacunacion completa?</option>
+            <option>No</option>
+            <option>Si</option>
+        </select>
     </form>
 </body>
 </html>
