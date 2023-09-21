@@ -7,10 +7,10 @@
 </head>
 <body>
     <h1>Buscar paciente</h1>
-    <form action="#">
+    <form action="#" method="GET">
         <input type="search" placeholder="Buscar paciente por DNI">
         <input type="submit" value="Buscar" name="enviar">
     </form>
-    <a href="ficha.php">Paciente nuevo</a>
+    <a href="./ficha.php">Paciente nuevo</a>
 </body>
 </html>

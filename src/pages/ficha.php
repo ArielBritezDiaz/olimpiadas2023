@@ -9,14 +9,14 @@
     <h1>Creacion de ficha medica</h1>
     <h3>Datos personales</h3>
     <form action="mostrarDatos.php" method="get">
+        <input type="number" name="dni" placeholder="DNI">
         <input type="text" name="nombre" placeholder="Nombre">
         <input type="text" name="apellido" placeholder="Apellido">
-        <input type="number" name="dni" placeholder="DNI">
-        <input type="date" name="nacimiento">
+        <input type="date" name="fecha_nacimiento">
         <input type="text" name="pais" placeholder="Pais">
         <input type="text" name="provincia" placeholder="Provincia">
         <input type="text" name="localidad" placeholder="Localidad">
-        <input type="number" name="postal" placeholder="Codigo postal">
+        <input type="number" name="codigo_postal" placeholder="Codigo postal">
         <select name="sexo" required>
         <option disabled selected>Sexo</option>
             <option>Masculino</option>
