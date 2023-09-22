@@ -1,0 +1,14 @@
+2023-09-22 18:38:16.916 [info] Extension host with pid 3516 started
+2023-09-22 18:38:16.916 [info] Skipping acquiring lock for /opt/lampp/htdocs/colegio/olimpiadas2023/User/workspaceStorage/de045d141a8b035fd6afde5a0c3a97e9.
+2023-09-22 18:38:16.962 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-09-22 18:38:16.970 [info] ExtensionService#_doActivateExtension formulahendry.auto-close-tag, startup: true, activationEvent: '*'
+2023-09-22 18:38:16.977 [info] ExtensionService#_doActivateExtension formulahendry.auto-rename-tag, startup: true, activationEvent: '*'
+2023-09-22 18:38:17.017 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-09-22 18:38:17.089 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-09-22 18:38:17.370 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-09-22 18:38:17.439 [info] Eager extensions activated
+2023-09-22 18:38:17.474 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-09-22 18:38:17.488 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-09-22 18:38:17.555 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-09-22 18:39:13.480 [info] Extension host terminating: renderer closed the MessagePort
+2023-09-22 18:39:18.493 [info] Extension host with pid 3516 exiting with code 0
