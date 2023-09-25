@@ -49,7 +49,7 @@
             <option value="No">No</option>
             <option value="Si">Si</option>
         </select>
-        <div class="obra_social_hidden" id="obra_social_hidden">
+        <div class="obra_social_hidden" id="obra_social_hidden" value="">
 
         </div>
         <select name="vacunacion_completa" required>
@@ -75,7 +75,7 @@
         </select>
         <!--<input type="search" name="enfermero" id="enfermero" placeholder="Buscar enfermero">-->
         <select name="enfermeroSelect" class="selectpicker" id="enfermeroSelect">
-            <option value="">Selecciona un enfermero</option>
+            <option disabled selected>Selecciona un enfermero</option>
             <?php
                 foreach($result as $row) {
                     echo "<option name='enfermero' value='".$row['id_enfermero']."'>".$row['apellido']. ' ' . $row['nombre']."</option>";
@@ -96,9 +96,10 @@
 
             if(opcion == "Si") {
                 const obraSocialHidden = document.getElementById('obra_social_hidden');
-                obraSocialHidden.innerHTML = `<input type="text" name="nombre_obra_social" placeholder="Nombre de obra social"></input>`;
+                obraSocialHidden.innerHTML = `<input type="text" name="nombre_obra_social" value="" placeholder="Nombre de obra social"></input>`;
             } else if(opcion == "No") {
-                obraSocialHidden = ``;
+                const obraSocialHidden = document.getElementById('obra_social_hidden');
+                obraSocialHidden.innerHTML = `<span type="text" name="nombre_obra_social" value=""></span>`;
             }
         }
     </script>
@@ -111,7 +112,8 @@
                 const medicamentoHidden = document.getElementById('medicamento_hidden');
                 medicamentoHidden.innerHTML = `<input type="text" name="nombre_medicamento" placeholder="Nombre de medicamento">`;
             } else if(opcion == "No") {
-                medicamentoHidden = ``;
+                const medicamentoHidden = document.getElementById('medicamento_hidden');
+                medicamentoHidden = `<span type="text" name="nombre_obra_social" value=""></span>`;
             }
         }
     </script>

@@ -64,8 +64,19 @@
             $nombreEnfermero = $registro['nombre'];
             $apellidoEnfermero = $registro['apellido'];
             
+            $dni = $_POST['dni'];
+            settype($dni, "int");
+
+            $fecha = $_POST['fecha_nacimiento'];
+            $result = explode('-', $fecha);
+            $date = $result[2];
+            $month = $result[1];
+            $year = $result[0];
+
+            //$fecha_nacimiento_format = $date . '-' . $month . '-' . $year;
+            
             $datos = array(
-                $dni = $_POST['dni'],
+                $dni,
                 $nombre = $_POST['nombre'],
                 $apellido = $_POST['apellido'],
                 $fecha_nacimiento = $_POST['fecha_nacimiento'],
@@ -78,21 +89,29 @@
                 $correo_electronico = $_POST['correo_electronico'],
                 $nota = $_POST['nota'],
                 $grupo_sanguineo = $_POST['grupo_sanguineo'],
-                $obra_social = $_POST['nombre_obra_social'],
                 $vacunacion_completa = $_POST['vacunacion_completa'],
-                $medicamento = $_POST['nombre_medicamento'],
                 $nota_medica = $_POST['nota_medica'],
                 $zona = $_POST['zona'],
                 $informacionEnfermero = "$apellidoEnfermero, $nombreEnfermero"
             );
 
-            $insertDatosPaciente = "INSERT INTO paciente(nombre, apellido, fecha_nacimiento, pais, provincia, localidad, codigo_postal, sexo, dni, telefono, correo_electronico, nota, grupo_sanguineo, obra_social, vacunacion_completa, medicamento, nota_medica, id_zona_fk, id_enfermero_fk) VALUES ()";
+            if(strlen($_POST['nombre_obra_social']) > 0) {
+                $obra_social = $_POST['nombre_obra_social'];
+                array_push($datos, $obra_social);
+            }
+            $a = strlen($_POST['nombre_medicamento']);
+            if($a > 0) {
+                $medicamento = $_POST['nombre_medicamento'];
+                array_push($datos, $medicamento);
+            }
+
+            // $insertDatosPaciente = "INSERT INTO paciente(nombre, apellido, fecha_nacimiento, pais, provincia, localidad, codigo_postal, sexo, dni, telefono, correo_electronico, nota, grupo_sanguineo, obra_social, vacunacion_completa, medicamento, nota_medica, id_zona_fk, id_enfermero_fk) VALUES ($_POST['nombre'], $_POST['apellido'], $_POST['fecha_nacimiento'], $_POST['pais'], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], )";
 
             ?>
                 <div>
                     <?php
                         foreach($datos as $dato) {
-                            echo "<p>". $dato ."</p>";
+                            echo "<p>". $dato ." (". gettype($dato) .")</p>";
                         }
                     ?>
                 </div>
