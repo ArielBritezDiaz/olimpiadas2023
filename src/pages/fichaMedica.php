@@ -54,7 +54,49 @@
             </table>
         <?php
         } else if(isset($_POST['enviar'])) {
+
+            $enfermeroSelect = $_POST['enfermeroSelect'];
+
+            $sqlBusqueda = "SELECT * FROM Enfermero WHERE id_enfermero = '$enfermeroSelect'";
+            $sqlBusquedaQuery = mysqli_query($conexion, $sqlBusqueda);
+            $registro = mysqli_fetch_assoc($sqlBusquedaQuery);
+
+            $nombreEnfermero = $registro['nombre'];
+            $apellidoEnfermero = $registro['apellido'];
             
+            $datos = array(
+                $dni = $_POST['dni'],
+                $nombre = $_POST['nombre'],
+                $apellido = $_POST['apellido'],
+                $fecha_nacimiento = $_POST['fecha_nacimiento'],
+                $pais = $_POST['pais'],
+                $provincia = $_POST['provincia'],
+                $localidad = $_POST['localidad'],
+                $codigo_postal = $_POST['codigo_postal'],
+                $sexo = $_POST['sexo'],
+                $telefono = $_POST['telefono'],
+                $correo_electronico = $_POST['correo_electronico'],
+                $nota = $_POST['nota'],
+                $grupo_sanguineo = $_POST['grupo_sanguineo'],
+                $obra_social = $_POST['nombre_obra_social'],
+                $vacunacion_completa = $_POST['vacunacion_completa'],
+                $medicamento = $_POST['nombre_medicamento'],
+                $nota_medica = $_POST['nota_medica'],
+                $zona = $_POST['zona'],
+                $informacionEnfermero = "$apellidoEnfermero, $nombreEnfermero"
+            );
+
+            $insertDatosPaciente = "INSERT INTO paciente(nombre, apellido, fecha_nacimiento, pais, provincia, localidad, codigo_postal, sexo, dni, telefono, correo_electronico, nota, grupo_sanguineo, obra_social, vacunacion_completa, medicamento, nota_medica, id_zona_fk, id_enfermero_fk) VALUES ()";
+
+            ?>
+                <div>
+                    <?php
+                        foreach($datos as $dato) {
+                            echo "<p>". $dato ."</p>";
+                        }
+                    ?>
+                </div>
+            <?php
         }
     ?>
 </body>

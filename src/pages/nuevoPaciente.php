@@ -1,3 +1,9 @@
+<?php
+    include("conexionDB.php");
+    $query = "SELECT * FROM Enfermero ORDER BY apellido ASC";
+    $result = $conexion->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,22 +14,22 @@
 <body>
     <h1>Creacion de ficha medica</h1>
     <h3>Datos personales</h3>
-    <form action="" method="POST">
+    <form action="fichaMedica.php" method="POST" enctype="multipart/form-data">
         <input type="number" name="dni" placeholder="DNI">
         <input type="text" name="nombre" placeholder="Nombre">
         <input type="text" name="apellido" placeholder="Apellido">
         <input type="date" name="fecha_nacimiento">
-        <input type="text" name="pais" placeholder="Pais">
+        <input type="text" name="pais" placeholder="País">
         <input type="text" name="provincia" placeholder="Provincia">
         <input type="text" name="localidad" placeholder="Localidad">
-        <input type="number" name="codigo_postal" placeholder="Codigo postal">
+        <input type="number" name="codigo_postal" min="0" max="9999" placeholder="Código postal">
         <select name="sexo" required>
             <option disabled selected>Sexo</option>
             <option>Masculino</option>
             <option>Femenino</option>
         </select>
-        <input type="number" name="telefono" placeholder="Telefono">
-        <input type="email" name="correo_electronico" placeholder="Correo electronico">
+        <input type="number" name="telefono" placeholder="Teléfono">
+        <input type="email" name="correo_electronico" placeholder="Correo electrónico">
         <input type="text" name="nota" placeholder="Nota">
 
         <h3>Datos medicos</h3>
@@ -67,43 +73,22 @@
             <option>Zona 3</option>
             <option>Zona 4</option>
         </select>
-        <input type="search" name="enfermero" id="enfermero" placeholder="Buscar enfermero">
+        <!--<input type="search" name="enfermero" id="enfermero" placeholder="Buscar enfermero">-->
+        <select name="enfermeroSelect" class="selectpicker" id="enfermeroSelect">
+            <option value="">Selecciona un enfermero</option>
+            <?php
+                foreach($result as $row) {
+                    echo "<option name='enfermero' value='".$row['id_enfermero']."'>".$row['apellido']. ' ' . $row['nombre']."</option>";
+                }
+            ?>
+        </select>
+        
         <div id="funciona" class="funciona">
 
         </div>
         <input type="submit" value="Enviar" name="enviar">
     </form>
 
-    <?php
-        if(isset($_POST['enviar'])) {
-            $dni = $_POST['dni'];
-            $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
-            $fecha_nacimiento = $_POST['fecha_nacimiento'];
-            $pais = $_POST['pais'];
-            $provincia = $_POST['provincia'];
-            $localidad = $_POST['localidad'];
-            $codigo_postal = $_POST['codigo_postal'];
-            $sexo = $_POST['sexo'];
-            $telefono = $_POST['telefono'];
-            $correo_electronico = $_POST['correo_electronico'];
-            $nota = $_POST['nota'];
-            $grupo_sanguineo = $_POST['grupo_sanguineo'];
-            $obra_social = $_POST['nombre_obra_social'];
-            $vacunacion_completa = $_POST['vacunacion_completa'];
-            $medicamneto = $_POST['nombre_medicamento'];
-            $nota_medica = $_POST['nota_medica'];
-            $zona = $_POST['zona'];
-            $enfermero = $_POST['enfermero'];
-
-            
-
-        }
-    ?>
-
-    
-
-    </>
     <script>
         function obraSocialHidden() {
             const obraSocial = document.getElementById('obra_social');
@@ -116,7 +101,8 @@
                 obraSocialHidden = ``;
             }
         }
-
+    </script>
+    <script>
         function medicamentoHidden() {
             const medicamento = document.getElementById('medicamento');
             const opcion = medicamento.value;
@@ -128,7 +114,12 @@
                 medicamentoHidden = ``;
             }
         }
-
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        $("#enfermeroSelect").chosen();
     </script>
 
 </body>
