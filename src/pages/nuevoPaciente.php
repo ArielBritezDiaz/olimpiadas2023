@@ -54,8 +54,8 @@
         </div>
         <select name="vacunacion_completa" required>
             <option disabled selected>¿Vacunacion completa?</option>
-            <option>No</option>
-            <option>Si</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
         </select>
         <select name="medicamento" id="medicamento" onchange="medicamentoHidden()" required>
             <option disabled selected>¿Consume medicamentos?</option>
@@ -113,7 +113,7 @@
                 medicamentoHidden.innerHTML = `<input type="text" name="nombre_medicamento" placeholder="Nombre de medicamento">`;
             } else if(opcion == "No") {
                 const medicamentoHidden = document.getElementById('medicamento_hidden');
-                medicamentoHidden = `<span type="text" name="nombre_obra_social" value=""></span>`;
+                medicamentoHidden = `<input type="hidden" name="nombre_obra_social" value=""></input>`;
             }
         }
     </script>

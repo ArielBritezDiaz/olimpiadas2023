@@ -73,32 +73,47 @@
             $month = $result[1];
             $year = $result[0];
 
-            //$fecha_nacimiento_format = $date . '-' . $month . '-' . $year;
-            
-            $datos = array(
-                $dni,
-                $nombre = $_POST['nombre'],
-                $apellido = $_POST['apellido'],
-                $fecha_nacimiento = $_POST['fecha_nacimiento'],
-                $pais = $_POST['pais'],
-                $provincia = $_POST['provincia'],
-                $localidad = $_POST['localidad'],
-                $codigo_postal = $_POST['codigo_postal'],
-                $sexo = $_POST['sexo'],
-                $telefono = $_POST['telefono'],
-                $correo_electronico = $_POST['correo_electronico'],
-                $nota = $_POST['nota'],
-                $grupo_sanguineo = $_POST['grupo_sanguineo'],
-                $vacunacion_completa = $_POST['vacunacion_completa'],
-                $nota_medica = $_POST['nota_medica'],
-                $zona = $_POST['zona'],
-                $informacionEnfermero = "$apellidoEnfermero, $nombreEnfermero"
+            $fecha_nacimiento_format = $date . '-' . $month . '-' . $year;
+            $fecha_nacimiento_db = $_POST['fecha_nacimiento'];
+
+            $codigo_postal = $_POST['codigo_postal'];
+            settype($codigo_postal, "int");
+
+            $telefono = $_POST['telefono'];
+            settype($telefono, "int");
+
+            $vacunacion_completa = $_POST['vacunacion_completa'];
+            if($vacunacion_completa == "Si") {
+                $vacunacion_completa = 1;
+            } else {
+                $vacunacion_completa = 0;
+            }
+                        
+            $datos_db = array(
+                $dni, //1
+                $nombre = $_POST['nombre'], //2
+                $apellido = $_POST['apellido'], //3
+                $fecha_nacimiento_db, //4
+                $pais = $_POST['pais'], //5
+                $provincia = $_POST['provincia'], //6
+                $localidad = $_POST['localidad'], //7
+                $codigo_postal, //8
+                $sexo = $_POST['sexo'], //9
+                $telefono, //10
+                $correo_electronico = $_POST['correo_electronico'], //11
+                $nota = $_POST['nota'], //12
+                $grupo_sanguineo = $_POST['grupo_sanguineo'], //13
+                $vacunacion_completa, //14
+                $nota_medica = $_POST['nota_medica'], //15
+                $zona = $_POST['zona'], //16
+                $enfermero_db = $registro['id_enfermero'] //17
             );
 
             if(strlen($_POST['nombre_obra_social']) > 0) {
                 $obra_social = $_POST['nombre_obra_social'];
                 array_push($datos, $obra_social);
             }
+
             $a = strlen($_POST['nombre_medicamento']);
             if($a > 0) {
                 $medicamento = $_POST['nombre_medicamento'];
@@ -110,8 +125,11 @@
             ?>
                 <div>
                     <?php
-                        foreach($datos as $dato) {
-                            echo "<p>". $dato ." (". gettype($dato) .")</p>";
+                    $i=1;
+                        foreach($datos_db as $dato) {
+                            
+                            echo "<p>". $i . " " .  $dato ." (". gettype($dato) .")</p>";
+                            $i++;
                         }
                     ?>
                 </div>
