@@ -9,11 +9,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/nuevoPaciente.css">
     <title>Ficha medica</title>
 </head>
 <body>
-    <h1>Creacion de ficha medica</h1>
-    <h3>Datos personales</h3>
+<header>
+        <nav class="nav">
+            <img src="../resources/images/HMT.png">
+            <ul class="list">
+                <a href="../public/index.html"><li>INICIO</li></a>
+                <a href="busqueda.php"><li>BUSCAR PACIENTE</li></a>
+                <a href="#"><li>AÑADIR PACIENTE</li></a>
+                <li>ADMINISTRAR USUARIOS</li>
+                <li>REPORTES</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="title">
+        <h1>Datos del nuevo paciente</h1>
+    </div>
+    <div class="data">
+        <h3>Datos personales</h3>
+    
     <form action="fichaMedica.php" method="POST" enctype="multipart/form-data">
         <input type="number" name="dni" placeholder="DNI">
         <input type="text" name="nombre" placeholder="Nombre">
@@ -88,6 +105,7 @@
         </div>
         <input type="submit" value="Enviar" name="enviar">
     </form>
+    </div>
 
     <script>
         function obraSocialHidden() {
