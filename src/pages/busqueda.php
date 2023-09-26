@@ -8,14 +8,29 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ficha medica</title>
+        <link rel="stylesheet" href="../styles/busqueda.css">
     </head>
     <body>
+        <nav class="nav">
+            <img src="../resources/images/HMT.png" alt="">
+            <ul>
+                <li><a href="../index.html"></a>INICIO</li>
+                <li><a href="../busqueda.php"></a>BUSCAR PACIENTE</li>
+                <li><a href="../nuevoPaciente.php"></a>AÑADIR PACIENTE</li>
+                <li>ADMINISTRAR USUARIOS</li>
+                <li>REPORTES</li>
+            </ul>
+        </nav>
+        <div class="content">
         <h1>Buscar paciente</h1>
         <form action="" method="GET">
-            <input type="search" name="dni" placeholder="Buscar paciente por DNI">
-            <input type="submit" value="Buscar" name="enviar">
+            <div class="search">
+            <input class="search2" type="search" name="dni" placeholder="Buscar paciente por DNI">
+            </div>
+            <input type="submit" value="🔍" name="enviar">
         </form>
-        <a href="./nuevoPaciente.php">Paciente nuevo</a>
+        <a class="pacienteNuevo" href="./nuevoPaciente.php">Paciente nuevo</a>
+        </div>
     </body>
 </html>
 

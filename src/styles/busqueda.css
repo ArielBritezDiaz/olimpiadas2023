@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.content{
+    text-align: center;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#1D8FCF ;
+    height: 50px;
+    font-size: 1em;
+}
+
+.nav img{
+    padding: 0 10px;
+}
+ul{
+    background-color: #d9d9d9;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
+
+li{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 12px;
+}
+
+h1{
+    margin: 40px 0 15px 0;
+}
+
+form{
+    margin: 30px;
+    text-decoration: none;
+}
+
+.pacienteNuevo{
+    margin: 10px;
+}
+
+.search{
+    border-bottom: 1px solid #0F0C0C;
+    display: inline;
+}
+
+.search2{
+    border: none;
+}
