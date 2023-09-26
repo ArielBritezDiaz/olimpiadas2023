@@ -1,2 +1,11 @@
 /node_modules
+/Backups
+/Cache
+/DawnCache
+/GPUCache
+/logs
+/User
+1.82-main.sock
+Network Persistent State
 token.txt
+TransportSecurity
